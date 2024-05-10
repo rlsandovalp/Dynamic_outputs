@@ -1,6 +1,6 @@
 
- CLM starting time =   7536.0000000000000      gmt =   2.0000000000000000      istep_pf =        7537
- CLM day =          10 month =          11 year =        2015
+ CLM starting time =   142.00000000000000      gmt =   0.0000000000000000      istep_pf =         143
+ CLM day =           1 month =           1 year =        2036
  End of time advance:
- time =   7536.0000000000000      gmt =   2.0000000000000000      endtime =           1
- Writing restart time =   7536.0000000000000      gmt =   2.0000000000000000      istep_pf =        7537
+ time =   142.00000000000000      gmt =   0.0000000000000000      endtime =           1
+ Writing restart time =   142.00000000000000      gmt =   0.0000000000000000      istep_pf =         143

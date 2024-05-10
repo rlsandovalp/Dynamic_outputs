@@ -6,7 +6,7 @@
  CLM IC (1=restart, 2=defined):           1
 
  CLM starting time =   0.0000000000000000      gmt =   2.0000000000000000      istep_pf =           1
- CLM day =          31 month =          12 year =        2014
+ CLM day =          26 month =          12 year =        2035
  End of time advance:
  time =   0.0000000000000000      gmt =   2.0000000000000000      endtime =           1
  Writing restart time =   0.0000000000000000      gmt =   2.0000000000000000      istep_pf =           1

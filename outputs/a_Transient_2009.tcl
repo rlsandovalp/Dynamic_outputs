@@ -71,7 +71,7 @@ pfsetgrid {265 165 9} {0.0 0.0 0.0} {2000 2000 25} $ssateq
 pfsave $ssateq -pfb "ssat_eq.pfb"
 
 
-file copy -force "./Dynamic_Spinup.out.press.00010.pfb" "./ip_solid.pfb"
+file copy -force "./Dynamic_Spinup.out.press.00365.pfb" "./ip_solid.pfb"
 file copy -force "../../../Data/DAT/drv_vegm_2009.dat" "./drv_vegm.dat"
 file copy -force "../../../Data/DAT/drv_vegp.dat" "./"
 file copy -force "../../../Data/DAT/drv_clmin_2009.dat" "./drv_clmin.dat"
@@ -183,10 +183,6 @@ pfset Geom.Porosity.GeomNames               "domain"
 pfset Geom.domain.Porosity.Type           "PFBFile"
 pfset Geom.domain.Porosity.FileName       "porosity_eq.pfb"
 
-# pfset Geom.Porosity.GeomNames               "domain"
-# pfset Geom.domain.Porosity.Type           "Constant"
-# pfset Geom.domain.Porosity.Value          0.25
-
 #-----------------------------------------------------------------------------
 # Relative Permeability
 #-----------------------------------------------------------------------------
@@ -195,11 +191,6 @@ pfset Phase.RelPerm.GeomNames             "domain"
 pfset Phase.RelPerm.VanGenuchten.File            1
 pfset Geom.domain.RelPerm.Alpha.Filename     "alpha_eq.pfb"
 pfset Geom.domain.RelPerm.N.Filename         "n_eq.pfb"
-
-# pfset Phase.RelPerm.Type                  VanGenuchten
-# pfset Phase.RelPerm.GeomNames             "domain"
-# pfset Geom.domain.RelPerm.Alpha                1.
-# pfset Geom.domain.RelPerm.N                    1.4
 
 #-----------------------------------------------------------------------------
 # Saturation
@@ -212,13 +203,6 @@ pfset Geom.domain.Saturation.N.Filename              "n_eq.pfb"
 pfset Geom.domain.Saturation.SRes.Filename           "sres_eq.pfb"
 pfset Geom.domain.Saturation.SSat.Filename           "ssat_eq.pfb"
 
-# pfset Phase.Saturation.Type               VanGenuchten
-# pfset Phase.Saturation.GeomNames          "domain"
-# pfset Geom.domain.Saturation.Alpha          1.0
-# pfset Geom.domain.Saturation.N              1.4
-# pfset Geom.domain.Saturation.SRes           0.02
-# pfset Geom.domain.Saturation.SSat           1.0
-
 #-----------------------------------------------------------------------------
 # Topo slopes in x-direction
 #-----------------------------------------------------------------------------
@@ -226,19 +210,12 @@ pfset TopoSlopesX.Type                                "PFBFile"
 pfset TopoSlopesX.GeomNames                           "domain"
 pfset TopoSlopesX.FileName                            "slope_x.pfb"
 
-# pfset TopoSlopesX.Type                                Constant
-# pfset TopoSlopesX.GeomNames                           "domain"
-# pfset TopoSlopesX.Geom.domain.Value                    0.0
-
 #-----------------------------------------------------------------------------
 # Topo slopes in y-direction
 #-----------------------------------------------------------------------------
 pfset TopoSlopesY.Type                                "PFBFile"
 pfset TopoSlopesY.GeomNames                           "domain"
 pfset TopoSlopesY.FileName                            "slope_y.pfb"
-# pfset TopoSlopesY.Type                                Constant
-# pfset TopoSlopesY.GeomNames                           "domain"
-# pfset TopoSlopesY.Geom.domain.Value                     0.0
 
 #-----------------------------------------------------------------------------
 # Mannings coefficient
@@ -247,23 +224,10 @@ pfset Mannings.Type                    "PFBFile"
 pfset Mannings.GeomNames               "domain"
 pfset Mannings.FileName                "mannings.pfb"
 
-# pfset Mannings.Type                    Constant
-# pfset Mannings.GeomNames               "domain"
-# pfset Mannings.Geom.domain.Value      4.4e-4
-
 #-----------------------------------------------------------------------------
 # Boundary Conditions
 #-----------------------------------------------------------------------------
-pfset BCPressure.PatchNames                   "Bottom Top west east"
-
-## overland flow boundary condition with very heavy rainfall then slight ET
-# pfset Solver.OverlandKinematic.Epsilon                   1E-5
-# pfset Patch.Top.BCPressure.Type		                    OverlandKinematic
-# pfset Patch.Top.BCPressure.Cycle		                "constant"
-# pfset Patch.Top.BCPressure.alltime.Value	            -0.000148
-## 0.00003625 m/h = 8.7e-4 m/day = 317 mm/year (low)
-
-
+pfset BCPressure.PatchNames                   "Top east"
 
 pfset Patch.east.BCPressure.Type		                 DirEquilRefPatch
 pfset Patch.east.BCPressure.Cycle		                "constant"
@@ -275,17 +239,6 @@ pfset Patch.Top.BCPressure.Type		                    OverlandKinematic
 pfset Patch.Top.BCPressure.Cycle		                "constant"
 pfset Patch.Top.BCPressure.alltime.Value	            0.0
 
-pfset Patch.west.BCPressure.Type		                 FluxConst
-pfset Patch.west.BCPressure.Cycle		                "constant"
-pfset Patch.west.BCPressure.alltime.Value	             0.0
-
-pfset Patch.Bottom.BCPressure.Type		                 FluxConst
-pfset Patch.Bottom.BCPressure.Cycle		                "constant"
-pfset Patch.Bottom.BCPressure.alltime.Value	             0.0
-
-# pfset Solver.EvapTransFile                        True
-# pfset Solver.EvapTrans.FileName                 et_data.pfb
-
 ##---------------------------------------------------------
 # Initial conditions: water pressure
 ##---------------------------------------------------------
@@ -295,12 +248,6 @@ pfset ICPressure.Type                                   PFBFile
 pfset ICPressure.GeomNames                              domain
 pfset Geom.domain.ICPressure.FileName                   "./ip_solid.pfb"
 
-# pfset ICPressure.Type                                   "HydroStaticPatch"
-# pfset ICPressure.GeomNames                              "domain"
-# pfset Geom.domain.ICPressure.RefGeom                    "domain"
-# pfset Geom.domain.ICPressure.RefPatch                   Bottom
-# pfset Geom.domain.ICPressure.Value                      200.0
-
 #-----------------------------------------------------------------------------
 # Timing [units in days]
 #-----------------------------------------------------------------------------
@@ -309,24 +256,13 @@ pfset TimingInfo.BaseUnit                 1.0
 pfset TimingInfo.StartCount               0.0
 pfset TimingInfo.StartTime                0.0
 pfset TimingInfo.StopTime                 8760.0
-pfset TimingInfo.DumpInterval             876.0
+pfset TimingInfo.DumpInterval             24.0
 pfset TimeStep.Type                       Constant
 pfset TimeStep.Value                      1.0
 
 #-----------------------------------------------------------------------------
 # Time Cycles
 #-----------------------------------------------------------------------------
-# pfset Cycle.Names                       "rainrec constant"
-
-# pfset Cycle.constant.Names              "alltime"
-# pfset Cycle.constant.alltime.Length      10000000
-# pfset Cycle.constant.Repeat             -1
-
-# pfset Cycle.rainrec.Names              "rain rec"
-# pfset Cycle.rainrec.rain.Length         1
-# pfset Cycle.rainrec.rec.Length          1999
-# pfset Cycle.rainrec.Repeat             -1
-
 pfset Cycle.Names                       "constant"
 
 pfset Cycle.constant.Names              "alltime"
@@ -387,7 +323,7 @@ pfset Solver.CLM.MetForcing                              3D
 pfset Solver.CLM.MetFileName                             "FORCING_lombardy"
 pfset Solver.CLM.MetFilePath                             "forcings/"
 pfset Solver.CLM.MetFileNT                               24
-pfset Solver.CLM.CLMDumpInterval                         876
+pfset Solver.CLM.CLMDumpInterval                         24
 
 
 pfset Solver.PrintCLM                                    True

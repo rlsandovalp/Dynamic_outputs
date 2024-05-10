@@ -1,4 +1,4 @@
-140
+134
 20
 Cell.3.dzScale.Value
 4
@@ -57,12 +57,8 @@ Solver.Nonlinear.ResidualTol
 1e-5
 23
 TimingInfo.DumpInterval
-5
-876.0
-29
-Patch.Bottom.BCPressure.Cycle
-8
-constant
+4
+24.0
 23
 PhaseSources.water.Type
 8
@@ -181,8 +177,8 @@ Geom.Porosity.GeomNames
 domain
 26
 Solver.CLM.CLMDumpInterval
-3
-876
+2
+24
 26
 Patch.Top.BCPressure.Cycle
 8
@@ -279,10 +275,6 @@ PhaseSources.water.Geom.domain.Value
 Solver.AbsTol
 5
 1E-10
-35
-Patch.west.BCPressure.alltime.Value
-3
-0.0
 11
 FileVersion
 1
@@ -309,8 +301,8 @@ Solver.PrintSubsurf
 True
 21
 BCPressure.PatchNames
-20
-Bottom Top west east
+8
+Top east
 36
 Geom.domain.Saturation.SRes.Filename
 11
@@ -415,10 +407,6 @@ Process.Topology.Q
 Process.Topology.R
 1
 1
-27
-Patch.west.BCPressure.Cycle
-8
-constant
 11
 Phase.Names
 5
@@ -431,10 +419,6 @@ porosity_eq.pfb
 Geom.domain.Patches
 20
 Bottom Top west east
-26
-Patch.west.BCPressure.Type
-9
-FluxConst
 18
 Mannings.GeomNames
 6
@@ -503,18 +487,10 @@ Cell.8.dzScale.Value
 Geom.domain.RelPerm.N.Filename
 8
 n_eq.pfb
-28
-Patch.Bottom.BCPressure.Type
-9
-FluxConst
 25
 Solver.Linear.MaxRestarts
 2
 10
-37
-Patch.Bottom.BCPressure.alltime.Value
-3
-0.0
 20
 Solver.CLM.WriteLogs
 5
